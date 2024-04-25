@@ -1,0 +1,14 @@
+/home/abdul/Documents/Atm-project/ATMapp/bin/Debug/net8.0/ATMapp
+/home/abdul/Documents/Atm-project/ATMapp/bin/Debug/net8.0/ATMapp.deps.json
+/home/abdul/Documents/Atm-project/ATMapp/bin/Debug/net8.0/ATMapp.runtimeconfig.json
+/home/abdul/Documents/Atm-project/ATMapp/bin/Debug/net8.0/ATMapp.dll
+/home/abdul/Documents/Atm-project/ATMapp/bin/Debug/net8.0/ATMapp.pdb
+/home/abdul/Documents/Atm-project/ATMapp/obj/Debug/net8.0/ATMapp.GeneratedMSBuildEditorConfig.editorconfig
+/home/abdul/Documents/Atm-project/ATMapp/obj/Debug/net8.0/ATMapp.AssemblyInfoInputs.cache
+/home/abdul/Documents/Atm-project/ATMapp/obj/Debug/net8.0/ATMapp.AssemblyInfo.cs
+/home/abdul/Documents/Atm-project/ATMapp/obj/Debug/net8.0/ATMapp.csproj.CoreCompileInputs.cache
+/home/abdul/Documents/Atm-project/ATMapp/obj/Debug/net8.0/ATMapp.dll
+/home/abdul/Documents/Atm-project/ATMapp/obj/Debug/net8.0/refint/ATMapp.dll
+/home/abdul/Documents/Atm-project/ATMapp/obj/Debug/net8.0/ATMapp.pdb
+/home/abdul/Documents/Atm-project/ATMapp/obj/Debug/net8.0/ATMapp.genruntimeconfig.cache
+/home/abdul/Documents/Atm-project/ATMapp/obj/Debug/net8.0/ref/ATMapp.dll
