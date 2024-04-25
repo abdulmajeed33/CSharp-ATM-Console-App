@@ -12,3 +12,4 @@
 /home/abdul/Documents/Atm-project/ATMapp/obj/Debug/net8.0/ATMapp.pdb
 /home/abdul/Documents/Atm-project/ATMapp/obj/Debug/net8.0/ATMapp.genruntimeconfig.cache
 /home/abdul/Documents/Atm-project/ATMapp/obj/Debug/net8.0/ref/ATMapp.dll
+/home/abdul/Documents/Atm-project/ATMapp/obj/Debug/net8.0/ATMapp.sourcelink.json

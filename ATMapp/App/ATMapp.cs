@@ -14,6 +14,7 @@ namespace ATMapp
         private static List<UserAccount> userAccountList;
         private UserAccount selectedAccount;
         private List<Transaction> _listOfTransactions;
+        private const decimal minimumKeptAmount = 500;
 
         public void Run()
         {
@@ -100,7 +101,7 @@ namespace ATMapp
                     PlaceDeposit();
                     break;
                 case (int)AppMenu.MakeWithdrawal:
-                    Console.WriteLine("Enter the amount you want to withdraw:");
+                    MakeWithDrawal();
                     break;
                 case (int)AppMenu.InternalTransfer:
                     Console.WriteLine("Enter the amount you want to transfer:");
@@ -172,7 +173,59 @@ namespace ATMapp
 
         public void MakeWithDrawal()
         {
-            throw new NotImplementedException();
+            var transaction_amt = 0;
+            int selectedAmount = UI.AppScreen.SelectAmount();
+            if (selectedAmount == -1)
+            {
+              MakeWithDrawal();
+              return;
+            }
+            else if(selectedAmount != 0)
+            {
+                transaction_amt = selectedAmount;
+            }
+            else
+            {
+                transaction_amt = UI.Validator.Convert<int>($"amount {UI.AppScreen.currency}to withdraw:");
+            }
+
+            // input validation
+            if (transaction_amt <= 0)
+            {
+                UI.Utility.PrintMessage("Amount needs to be greater than zero. Try again", false);
+                return;
+            }
+
+            if(transaction_amt % 500 != 0)
+            {
+                UI.Utility.PrintMessage("Invalid amount. Please enter multiples of 500, 1000 and 5000 PKR. Try again", false);
+                return;
+            }
+
+            // Business logic validation
+            if(transaction_amt > selectedAccount.AccountBalance)
+            {
+                UI.Utility.PrintMessage($"Withdrawal failed, Your balance is To low to wothdrawal"+
+                 $"{UI.Utility.FormatAmount(transaction_amt)}", false);
+                return;
+            }
+
+            if(selectedAccount.AccountBalance - transaction_amt < minimumKeptAmount)
+            {
+                UI.Utility.PrintMessage($"Withdrawal failed, Your balance is To low to wothdrawal"+
+                 $"{UI.Utility.FormatAmount(transaction_amt)}", false);
+                return;
+            }
+
+            // Bind withdrawal transaction details to the transaction object
+            InsertTransaction(selectedAccount.Id, TransactionType.Withdrawal, transaction_amt, "Withdrawal cash");
+
+            // Update account balance
+            selectedAccount.AccountBalance -= transaction_amt;
+
+            // Print success message
+            UI.Utility.PrintMessage($"You have successfully withdrawn {UI.Utility.FormatAmount(transaction_amt)}", true);
+
         }
 
         private bool PreviewBankNotesCount(int amount)
