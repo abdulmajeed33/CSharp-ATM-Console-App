@@ -3,10 +3,10 @@ using ATMApp.Domain.Entities;
 
 namespace ATMapp.UI;
 
-public static class AppScreen
+public class AppScreen
 {
-   internal const string currency = "PKR "; 
-   internal static void Welcome()
+   public const string currency = "PKR "; 
+   public static void Welcome()
         {
             //clears the console screen
             Console.Clear();
@@ -25,7 +25,7 @@ public static class AppScreen
             UI.Utility.PressEnterToContinue();
         }
 
-    internal static UserAccount UserLoginForm()
+    public static UserAccount UserLoginForm()
         {
             UserAccount tempUserAccount = new UserAccount();
 
@@ -35,13 +35,13 @@ public static class AppScreen
             return tempUserAccount;
         }
 
-    internal static void LoginProgress()
+    public static void LoginProgress()
     {
         Console.WriteLine("\nChecking your card number and pin...");
         UI.Utility.PrintDotAnimation();
     }
 
-    internal static void PrintLockScreen()
+    public static void PrintLockScreen()
     {
        Console.Clear();
        UI.Utility.PrintMessage("Your account is locked, please contact your bank", true);
@@ -49,13 +49,13 @@ public static class AppScreen
        Environment.Exit(1);
     }
 
-    internal static void WelcomeCustomer(string fullName)
+    public static void WelcomeCustomer(string fullName)
         {
             Console.WriteLine($"Welcome back, {fullName}");
             UI.Utility.PressEnterToContinue();
         }
 
-    internal static void DisplayAppMenu()
+    public static void DisplayAppMenu()
         {
             Console.Clear();
             Console.WriteLine("-----------------ATM App Menu-----------------");
@@ -67,7 +67,7 @@ public static class AppScreen
             Console.WriteLine("6. Logout                                    :");
         }
 
-    internal static int SelectAmount()
+    public static int SelectAmount()
         {
             Console.WriteLine("");
             Console.WriteLine(":1.{0}500      5.{0}10,000", currency);
@@ -112,5 +112,14 @@ public static class AppScreen
                     return -1;
                     break;
             }   
+        }
+
+    public InternalTransfer InternalTransferForm()
+        {
+           var internalTransfer = new InternalTransfer();
+           internalTransfer.ReceipeintBankAccountNumber = UI.Validator.Convert<long>("receipeint bank account number");
+           internalTransfer.TransferAmount = UI.Validator.Convert<decimal>($"transfer {currency}");
+           internalTransfer.ReceipeintBankAccountName = UI.Utility.GetUserInput("receipeint bank account name");
+           return internalTransfer;
         }
 }
