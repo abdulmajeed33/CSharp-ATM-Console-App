@@ -117,9 +117,9 @@ public class AppScreen
     public InternalTransfer InternalTransferForm()
         {
            var internalTransfer = new InternalTransfer();
-           internalTransfer.ReceipeintBankAccountNumber = UI.Validator.Convert<long>("receipeint bank account number");
+           internalTransfer.ReceipeintBankAccountNumber = UI.Validator.Convert<long>("recipient bank account number");
            internalTransfer.TransferAmount = UI.Validator.Convert<decimal>($"transfer {currency}");
-           internalTransfer.ReceipeintBankAccountName = UI.Utility.GetUserInput("receipeint bank account name");
+           internalTransfer.ReceipeintBankAccountName = UI.Utility.GetUserInput("recipient bank account name");
            return internalTransfer;
         }
 }

@@ -81,13 +81,13 @@ namespace ATMapp.UI
 
                 if(inputKey.Key == ConsoleKey.Enter)
                 {
-                    if (input.Length == 6)
+                    if (input.Length == 4)
                     {
                         break;
                     }
                     else
                     {
-                        PrintMessage("\nPlease enter 6 digits.", false);                        
+                        PrintMessage("\nPlease enter 4 digits.", false);                        
                         input.Clear();
                         isPrompt = true;
                         continue;
